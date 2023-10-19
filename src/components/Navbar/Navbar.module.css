@@ -1,0 +1,30 @@
+.container{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.search{
+    flex : 1;
+    max-width: 800px;
+    margin: auto;
+    z-index: 100;
+}
+
+/* logo */
+.logo{
+    /* background-color: #535bf2; */
+    /* margin-top: 20px; */
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    top : 20px;
+    right : 20px;
+    background-image: url("../../assets/icons/logo.svg");
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
+  
