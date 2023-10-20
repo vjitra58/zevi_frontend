@@ -5,18 +5,20 @@ import {BsSearch} from "react-icons/bs";
 import LatestCard from '../LatestCard/LatestCard.jsx';
 import img1 from "../../assets/images/latest_img1.jpeg"
 import { useNavigate } from 'react-router-dom';
-import { getLatestTrends } from '../../api/getLatestTrends';
+import { getLatestTrends} from '../../api/getLatestTrends.js';
+import {getPopularSuggestions} from "../../api/getPopularSuggestions.js";
 
 
 const Search = ({flag}) => {
     const [text, setText] = useState("");
     const navigate = useNavigate();
     const latestTrends = getLatestTrends();
+    const popular = getPopularSuggestions();
     // console.log("from search" , latestTrends);
     const handleSearch = (e)=>{
         console.log(text);
         setText("");
-        // navigate("/products");
+        navigate("/products");
     }
   return (
     <>
@@ -36,7 +38,7 @@ const Search = ({flag}) => {
     <div className={styles.suggestion}>
         <p>Latest Trends</p>
         <div className={styles.latest_card}>
-            {latestTrends.map((product, ind)=>{
+            {latestTrends?.map((product, ind)=>{
               return (
                 <div key={ind} style={{ height: flag ? "180px" : "250px"}} className={styles.card_wrapper}><LatestCard product={product} imageSrc={img1} title="white formal shirt" /></div>
               )
@@ -45,10 +47,7 @@ const Search = ({flag}) => {
 
         <p>Popular suggestions</p>
         <div className={styles.popular}>
-            <p>stripped shirt</p>
-            <p>Denim Jumpsuit</p>
-            <p>black Trousers</p>
-            <p>brown hoody jacket</p>
+            {popular?.map((name, ind)=><p key={ind}>{name}</p>)}
         </div>
     </div>
     }
