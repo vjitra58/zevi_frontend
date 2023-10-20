@@ -2,13 +2,14 @@ import React from 'react'
 import styles from "./LatestCard.module.css";
 
 
-const LatestCard = ({imageSrc, title}) => {
+const LatestCard = ({product, imageSrc, title}) => {
+  
   return (
     <div className={styles.container}>
         <div className={styles.imageBox}>
-            <img src={imageSrc}></img>
+            <img src={`\\images\\latest_img${product?.image}.jpeg`}></img> 
         </div>
-        <p>{title}</p>
+        <p>{product?.name}</p>
     </div>
   )
 }
